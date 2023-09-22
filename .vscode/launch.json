@@ -21,13 +21,28 @@
             "name": "Preview",
             "request": "launch",
             "runtimeArgs": [
-                "run",
-                "preview"
+                "--version",
+                "|",
+                "build\\ProjetoCertComp1\\ProjetoCertComp1-win_x64.exe"
             ],
             "preLaunchTask": {
                 "type": "npm",
                 "script": "build"
             },
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "PreviewOnly",
+            "request": "launch",
+            "runtimeArgs": [
+                "--version",
+                "|",
+                "build\\ProjetoCertComp1\\ProjetoCertComp1-win_x64.exe"
+            ],
             "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"

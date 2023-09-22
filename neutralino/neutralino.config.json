@@ -1,0 +1,43 @@
+{
+   "applicationId":"dev.utfprgroup.certcomp1",
+   "defaultMode":"window",
+   "port":8001,
+   "url":"/",
+   "documentRoot":"build/",
+   "enableServer":true,
+   "enableNativeAPI":true,
+   "tokenSecurity": "none",
+   "logging":{
+      "enabled":true,
+      "writeToLogFile":true
+   },
+   "nativeBlockList":[
+      
+   ],
+   "modes":{
+      "window":{
+         "title":"ProjetoCertComp1",
+         "width":800,
+         "height":500,
+         "minWidth":400,
+         "minHeight":200,
+         "fullScreen":false,
+         "alwaysOnTop":false,
+         "icon":"/build/favicon.png",
+         "enableInspector":false,
+         "borderless":false,
+         "maximize":false,
+         "hidden":false,
+         "resizable":true,
+         "exitProcessOnClose":true
+      }
+   },
+   "cli":{
+      "binaryName":"ProjetoCertComp1",
+      "resourcesPath":"/build/",
+      "extensionsPath":"/",
+      "clientLibrary": "/build/neutralino.js",
+      "binaryVersion":"4.14.0",
+      "clientVersion":"3.12.0"
+   }
+}

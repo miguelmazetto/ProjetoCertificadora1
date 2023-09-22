@@ -8,7 +8,27 @@
 	// Importa Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+  	import { onMount } from 'svelte';
+	import { setNeutralino, Neutralino } from '$lib/neutralino.js';
+
+	import { initwatcher_questoes } from '$lib/questoes';
+
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	onMount(() => {
+		// Get access to Neutralino Native API
+		if(window.Neutralino){
+			window.Neutralino.init();
+			setNeutralino(window.Neutralino);
+			Neutralino?.debug.log("Started:", Neutralino.debug.LoggerType.INFO);
+
+			window.addEventListener( "error" , (e) => {
+				Neutralino?.debug.log(JSON.stringify(e), Neutralino.debug.LoggerType.ERROR);
+			})
+		}
+
+		initwatcher_questoes();
+	})
 </script>
 
 <AppShell>

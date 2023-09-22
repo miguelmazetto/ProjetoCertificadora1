@@ -1,4 +1,4 @@
-import adapter from "@macfja/svelte-adapter-neutralino"
+import adapter from './neutralino/adapter.js';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 
@@ -14,24 +14,33 @@ const config = {
 	},
     kit: {
         adapter: adapter({
-            // default options are shown
-            name: "Svelte Kit",
-            applicationId: "dev.svelte.kit",
-            icon: "favicon.png",
-            window: {
-                width: 800,
-                height: 500,
-                minWidth: 400,
-                minHeight: 200,
-                resizable: true,
-                maximize: false,
-            },
-            output: "build",
-            versions: {
-                client: "3.12.0",
-                binary: "4.14.0",
-            },
-        }),
+			// default options are shown. On some platforms
+			// these options are set automatically — see below
+			pages: 'build',
+			assets: 'build',
+			fallback: undefined,
+			precompress: false,
+			strict: false
+		})
+        //adapter: adapter({
+        //    // default options are shown
+        //    name: "ProjetoCertComp1",
+        //    applicationId: "dev.utfprgroup.certcomp1",
+        //    icon: "favicon.png",
+        //    window: {
+        //        width: 800,
+        //        height: 500,
+        //        minWidth: 400,
+        //        minHeight: 200,
+        //        resizable: true,
+        //        maximize: false,
+        //    },
+        //    output: "build",
+        //    versions: {
+        //        client: "3.12.0",
+        //        binary: "4.14.0",
+        //    },
+        //}),
     },
 };
 export default config;
