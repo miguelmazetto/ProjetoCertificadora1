@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from "@macfja/svelte-adapter-neutralino"
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 
@@ -12,11 +12,26 @@ const config = {
 	vitePlugin: {
 		inspector: true,
 	},
-	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
-	}
+    kit: {
+        adapter: adapter({
+            // default options are shown
+            name: "Svelte Kit",
+            applicationId: "dev.svelte.kit",
+            icon: "favicon.png",
+            window: {
+                width: 800,
+                height: 500,
+                minWidth: 400,
+                minHeight: 200,
+                resizable: true,
+                maximize: false,
+            },
+            output: "build",
+            versions: {
+                client: "3.12.0",
+                binary: "4.14.0",
+            },
+        }),
+    },
 };
 export default config;
