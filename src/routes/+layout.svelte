@@ -11,7 +11,7 @@
   	import { onMount } from 'svelte';
 	import { setNeutralino, Neutralino } from '$lib/neutralino.js';
 
-	import { initwatcher_questoes } from '$lib/questoes';
+	//import { initwatcher_questoes } from '$lib/questoes';
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 

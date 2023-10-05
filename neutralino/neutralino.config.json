@@ -16,7 +16,7 @@
    ],
    "modes":{
       "window":{
-         "title":"ProjetoCertComp1",
+         "title":"Projeto Certificadora de Competência 1",
          "width":800,
          "height":500,
          "minWidth":400,
@@ -29,7 +29,8 @@
          "maximize":false,
          "hidden":false,
          "resizable":true,
-         "exitProcessOnClose":true
+         "exitProcessOnClose":true,
+         "useSavedState":true
       }
    },
    "cli":{
