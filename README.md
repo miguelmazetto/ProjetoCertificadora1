@@ -12,10 +12,10 @@
 
 
 # Descrição do projeto
-    Uma aplicação que utiliza da tecnologia svelte, que gera um executavel neltralino, foram utilizados o git , node.js, skeleton. No projeto foram propostas 10 questoes de fisica nivel médio, contendo dicertativas e multipla escolha, contem 3 niveis de dificuldade Facíl Média e Dificil. 
+        Uma aplicação que utiliza da tecnologia svelte, que gera um executavel neltralino, foram utilizados o git , [NODE.js](https://nodejs.org/en/about), [skeleton](https://www.skeleton.dev/). No projeto foram propostas 10 questoes de fisica nivel médio, contendo dicertativas e multipla escolha, contem 3 niveis de dificuldade Facíl Média e Dificil. 
 
 # Repositório do projeto
-https://github.com/miguelmazetto/ProjetoCertificadora1
+- [Projeto](https://github.com/miguelmazetto/ProjetoCertificadora1)
 
 # Instalação e Execução
 
