@@ -1,4 +1,4 @@
-# Projeto de Certificadora 1
+# Projeto de Certificadora de Competência 1
 
 | Integrantes                       | RA      |
 |-----------------------------------|---------|
