@@ -21,7 +21,7 @@ export async function jsonwatcher(store, path, defaultdata){
         }catch(e){
             content = defaultdata
             try{
-                await fs.writeFile(path, JSON.stringify(content))
+                await fs.writeFile(path, JSON.stringify(content, null, 4))
             }catch(e){/* Ignore */}
         }
     }else{ // Browser

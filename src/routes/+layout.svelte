@@ -10,9 +10,7 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
   	import { onMount } from 'svelte';
 	import { setNeutralino, Neutralino } from '$lib/neutralino.js';
-	
-
-	//import { initwatcher_questoes } from '$lib/questoes';
+	import { initwatcher_questoes } from '$lib/questoesdb';
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
