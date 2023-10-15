@@ -14,7 +14,7 @@
 
 No projeto foram propostas 10 questoes de fisica de nivel médio, contendo questões dissertativas e de múltipla escolha, as questões contém 3 níveis de dificuldade: *Facíl, Média e Dificil*. Para a realização e leitura delas, foi construido um ambiente onde o usuário pode responde-las. As 10 questões foram geradas a partir do [ChatGPT](https://chat.openai.com/auth/login), posteriormente foi pesquisado um [livro de fisica do ensino médio](https://drive.google.com/file/d/1fMNtfeitybaRnTNaOSFvCUtKzdfZKvCm/view?usp=sharing), assim descartando a idéia de utilizar questões do ChatGPT.
 
-### Bibliotécas
+### Bibliotecas
 Essa aplicação utiliza as técnologias:
  * [svelte](https://svelte.dev/) (Uma linguagem para web que aprimora o html);
  * [neltralino](https://neutralino.js.org/) (Gera um executável apenas utilizando js, html e css);
