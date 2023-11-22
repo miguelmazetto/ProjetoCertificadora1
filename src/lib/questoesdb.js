@@ -3,8 +3,12 @@ import { writable } from "svelte/store";
 import getQuestoes from "$lib/default_questions"
 
 function getSavedQuestoes(){
-    // @ts-ignore
-    return getQuestoes().map(e => (delete e.resposta, e))
+    return getQuestoes().map(e => {
+        let ne = Object.assign({}, e)
+        // @ts-ignore
+        delete ne.resposta;
+        return ne;
+    })
 }
 
 /**

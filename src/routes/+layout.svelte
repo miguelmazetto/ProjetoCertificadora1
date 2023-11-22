@@ -3,14 +3,17 @@
 	import '../app.postcss';
 
 	// Importa os componentes usados ali embaixo
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Modal } from '@skeletonlabs/skeleton';
 
 	// Importa Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
+	import { initializeStores } from '@skeletonlabs/skeleton';
   	import { onMount } from 'svelte';
 	import { setNeutralino, Neutralino } from '$lib/neutralino.js';
 	import { initwatcher_questoes } from '$lib/questoesdb';
+
+	initializeStores();
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
@@ -29,6 +32,8 @@
 		initwatcher_questoes();
 	})
 </script>
+
+<Modal />
 
 <AppShell>
 

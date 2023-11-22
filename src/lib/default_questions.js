@@ -16,7 +16,7 @@ export default () => [
         "enunciado": "Um carro viaja a uma velocidade constante de 90 km/h por 2 horas. Qual é a distância total percorrida pelo carro?",
         "dificuldade": 0,
         "tipo": "dissert",
-        "resposta": /^0*180((000\s*m)|(\s*km))(?!\d)/,
+        "resposta": /^0*180((\.?000\s*m?)|(\s*(km)?))(?!\d)/,
         "resolvido": false
     },
     { // 3
@@ -36,9 +36,9 @@ export default () => [
         "enunciado": "Um objeto é lançado verticalmente para cima com uma velocidade inicial de 20 m/s. Quanto tempo levará para o objeto atingir o ponto mais alto de sua trajetória? (Use g = 9,8 m/s² para a aceleração devido à gravidade)",
         "dificuldade": 0,
         "tipo": "dissert",
-        "resposta": /^0*180((000\s*m)|(\s*km))(?!\d)/,
+        "resposta": /^0*2([\.,](0|1)\d*)?\s*(?!\d)/,
         "resolvido": false
-    },
+    }, // /^0*20\.?(3|4|5)((\d\d([\.,]\d+)?\s*cm)|((\.\d+)\s*m))(?!\d)/,
     { // 5
         "enunciado": "Qual é a Terceira Lei de Newton, também conhecida como a Lei da Ação e Reação?",
         "dificuldade": 1,
@@ -49,14 +49,14 @@ export default () => [
             '"Para cada ação, há uma reação igual e oposta."',
             '"A energia não pode ser criada nem destruída, apenas transformada."'
         ],
-        "resposta": 0,
+        "resposta": 2,
         "resolvido": false
     },
     { // 6
         "enunciado": "Calcule o trabalho realizado por uma força de 50 Newtons que move um objeto por uma distância de 10 metros em linha reta na direção da força.",
         "dificuldade": 1,
         "tipo": "dissert",
-        "resposta": /^0*180((000\s*m)|(\s*km))(?!\d)/,
+        "resposta": /^0*500(\s*[jJ]?)(?!\d)/,
         "resolvido": false
     },
     { // 7
@@ -76,7 +76,7 @@ export default () => [
         "enunciado": "Calcule a aceleração de um objeto que vai de 15 m/s a 30 m/s em 3 segundos.",
         "dificuldade": 2,
         "tipo": "dissert",
-        "resposta": /^0*180((000\s*m)|(\s*km))(?!\d)/,
+        "resposta": /^0*5(\s*m?)(?!\d)/,
         "resolvido": false
     },
     { // 9
@@ -96,7 +96,7 @@ export default () => [
         "enunciado": "Calcule a força gravitacional entre duas massas de 100 kg e 150 kg que estão separadas por uma distância de 10 metros. Use a constante gravitacional universal G = 6,67 x 10^-11 N m²/kg².",
         "dificuldade": 2,
         "tipo": "dissert",
-        "resposta": /^0*180((000\s*m)|(\s*km))(?!\d)/,
+        "resposta": /^0*((10([\.,]?(0|1)\d*)?)|(9[\.,]?(9|8)\d*))\s*[Nn](?!\d)/,
         "resolvido": false
     },
 ]

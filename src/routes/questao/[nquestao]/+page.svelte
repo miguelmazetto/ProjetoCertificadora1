@@ -1,16 +1,53 @@
 <script>
-  import { goto } from "$app/navigation";
+  import { goto, onNavigate } from "$app/navigation";
   import { page } from '$app/stores';
   import getQuestoes from '$lib/default_questions'
+  import { questoes } from "$lib/questoesdb";
   import RadioAnswer from "$lib/RadioAnswer.svelte";
 
-  const nquestao = parseInt($page.params.nquestao);
-  const questao = getQuestoes()[nquestao - 1];
+  //import { getModalStore } from '@skeletonlabs/skeleton';
+  //const modalStore = getModalStore();
+
+  let nquestao = parseInt($page.params.nquestao);
+  $: questao = getQuestoes()[nquestao - 1];
 
   /**
    * @type {any}
    */
-  let resposta;
+  let resposta = '';
+
+  $: respostadesabilitada = resposta === '' || resposta === -1;
+
+  function gotoProxima(){
+    if(nquestao >= 10)
+      goto('/')
+    else{
+      goto(`/questao/${nquestao + 1}`)
+      resposta = ''
+      nquestao = nquestao + 1;
+    }
+  }
+
+  function responder(){
+    if(questao.tipo === 'dissert'){
+      if(resposta.match(questao.resposta) !== null){
+        questoes.update(o => {
+          console.log("Resolver", o, nquestao-1)
+          o[nquestao - 1].resolvido = true;
+          return o;
+        })
+        gotoProxima();
+      }
+    }else{
+      if(resposta === questao.resposta){
+        questoes.update(o => {
+          o[nquestao - 1].resolvido = true;
+          return o;
+        })
+        gotoProxima();
+      }
+    }
+  }
 
 </script>
   
@@ -49,10 +86,17 @@
   </div>
   
   <!-- Buttons -->
-  <button type="button" class="btn variant-filled"
-          on:click={() => goto('/')}>
-    Voltar
-  </button>
+  <div class="flex justify-between">
+    <button type="button" class="btn variant-filled"
+    on:click={() => goto('/')}>
+      Voltar
+    </button>
+
+    <button type="button" class="btn variant-filled" disabled={respostadesabilitada}
+    on:click={responder}>
+      Responder
+    </button>
+  </div>
   
 </div>
   

@@ -17,7 +17,7 @@ No projeto foram propostas 10 questoes de fisica de nivel médio, contendo quest
 ### Bibliotecas
 Essa aplicação utiliza as técnologias:
  * [svelte](https://svelte.dev/) (Uma linguagem para web que aprimora o html);
- * [neltralino](https://neutralino.js.org/) (Gera um executável apenas utilizando js, html e css);
+ * [neutralino](https://neutralino.js.org/) (Gera um executável apenas utilizando js, html e css);
  * [git](https://github.com/) (Serve como controle de versão);
  * [node.js](https://nodejs.org/en/about) (Para a prototipação em tempo real e compilação do código);
  * [skeleton.dev](https://www.skeleton.dev/) (Para componentes svelte preprontos);
@@ -26,10 +26,11 @@ Essa aplicação utiliza as técnologias:
 ### Repositório do projeto
 - Código-Fonte: [Projeto Git](https://github.com/miguelmazetto/ProjetoCertificadora1)
 - Primeira Entrega: [Video 1](https://drive.google.com/file/d/1gZYFuPbIPOie8LKHYm8HFqja9AVBTRhE/view)
+- Segunda Entrega: [Video 2](https://drive.google.com/file/d/1fpDIPM8ejgFPU5hk3Xl3ysDMiCw0ucHN/view)
 
 ### Instalação e Execução
 
-* Baixe os artefatos [aqui](https://github.com/miguelmazetto/ProjetoCertificadora1/releases/download/v0.1/ProjetoCertComp1.zip)
+* Baixe os artefatos [aqui](https://github.com/miguelmazetto/ProjetoCertificadora1/releases/download/v0.2/ProjetoCertComp1.zip)
 * Descompacte o arquivo zip em algum lugar
 * Tente o execútavel dentro da pasta window-mode, o executável sendo aquele correspondente ao sistema operacional que você estiver rodando (ele tentará usar um navegador já instalado para mostrar o frontend)
   * Se não funcionar o window-mode, tente o chrome-mode, ele usará especificamente o Google Chrome, que se você não tiver instalado tente o próximo método
