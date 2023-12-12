@@ -1,33 +1,33 @@
 <script>
     import { goto } from '$app/navigation';
-    import getQuestoes from '$lib/default_questions'
-    import { questoes as questoes_store } from '$lib/questoesdb';
+    import { questoes } from '$lib/questoesdb';
+  import { canAccess } from '$lib/util';
     import { getModalStore } from '@skeletonlabs/skeleton';
 			
     const modalStore = getModalStore();
 
-    const questoes_data = getQuestoes();
-    console.log(questoes_data)
+    //console.log($questoes)
+    const qstore = questoes;
 
-    const arr = [
+    $: arr = [
         {
             dificuldade: 'Fácil',
             difclass: 'bg-green-500',
-            questoes: [1,2,3,4]
+            questoes: $questoes.filter(v => v.dificuldade == 0).map(v => v.index)
         },
         {
             dificuldade: 'Média',
             difclass: 'bg-yellow-500',
-            questoes: [5,6,7]
+            questoes: $questoes.filter(v => v.dificuldade == 1).map(v => v.index)
         },
         {
             dificuldade: 'Difícil',
             difclass: 'bg-red-600',
-            questoes: [8,9,10]
+            questoes: $questoes.filter(v => v.dificuldade == 2).map(v => v.index)
         }
     ]
     // Clone and reverse it
-    const reversed =
+    $: reversed =
         arr.slice()                                                    // Clone
             .map(e => Object.assign({},e))                             // Clone elements
             .reverse()                                                 // Reverse dificulties
@@ -43,7 +43,9 @@
     * @param {number} questaoi
     */
     function goQuestao(questaoi){
-        const questao = $questoes_store[questaoi-1] ?? {}
+        if(!canAccess($questoes, questaoi)) return;
+
+        const questao = $questoes[questaoi-1] ?? {}
         if(questao.resolvido){
             modal.response = r => (r && goto(`/questao/${questaoi}`), r);
             // @ts-ignore
@@ -76,11 +78,29 @@
                 <b>{dificuldade}</b>
             </div>
             {#each questoes as questaoi}
-                <p>
-                    <button on:click={() => goQuestao(questaoi)} class="w-full">
+                <p class={$qstore[questaoi-1].resolvido > 0 ? "grid grid-cols-3" : ""}>
+
+                    <button
+                        on:click={() => goQuestao(questaoi)}
+                        class="w-full col-span-2"
+                        disabled={!canAccess($qstore, questaoi)}
+                    >
                         Questão {questaoi} <br />
-                        <small>{$questoes_store[questaoi-1]?.resolvido ? 'Resolvido' : ''}</small>
+
+                        <!-- Marcacao de resolvido -->
+                        {#if $qstore[questaoi-1].resolvido > 0}
+                            <small>Resolvido</small>
+                        {/if}
                     </button>
+
+                    <!-- Seletor de dificuldade -->
+                    {#if $qstore[questaoi-1].resolvido > 0}
+                        <select class="select" bind:value={$qstore[questaoi-1].dificuldade}>
+                            <option value=0>Fácil</option>
+                            <option value=1>Média</option>
+                            <option value=2>Difícil</option>
+                        </select>
+                    {/if}
                 </p>
 	        {/each}
 	    {/each}
@@ -88,6 +108,8 @@
 
 </center>
 
+<!-- Utilizado para indicar que essas paginas devem ser incluidas -->
+<!-- Apenas para referencia, e nao sera mostrado na pagina -->
 <div style="display: none;">
     <a href="/questao/1">q</a>
     <a href="/questao/2">q</a>

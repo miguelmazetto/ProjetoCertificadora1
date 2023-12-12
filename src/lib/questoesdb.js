@@ -11,15 +11,17 @@ function getSavedQuestoes(){
     })
 }
 
-/**
- * @type {import("svelte/store").Writable<any>}
- */
 export let questoes = writable(getSavedQuestoes());
 
 let watching = false;
-export function initwatcher_questoes() {
+
+/**
+ * @param {any} questoes_data
+ * @param {typeof questoes} questoes_store
+ */
+export function initwatcher_questoes(questoes_store, questoes_data) {
     if(watching) return;
     watching = true;
 
-    jsonwatcher(questoes, "./questoes.json", getSavedQuestoes());
+    jsonwatcher(questoes_store, "./questoes.json", questoes_data);
 }

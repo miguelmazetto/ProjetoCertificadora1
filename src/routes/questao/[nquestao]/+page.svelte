@@ -1,15 +1,24 @@
 <script>
   import { goto, onNavigate } from "$app/navigation";
   import { page } from '$app/stores';
-  import getQuestoes from '$lib/default_questions'
   import { questoes } from "$lib/questoesdb";
+  import getQuestoes from "$lib/default_questions"
   import RadioAnswer from "$lib/RadioAnswer.svelte";
+  import { canAccess } from "$lib/util";
+  import { onMount } from "svelte";
 
   //import { getModalStore } from '@skeletonlabs/skeleton';
   //const modalStore = getModalStore();
 
   let nquestao = parseInt($page.params.nquestao);
-  $: questao = getQuestoes()[nquestao - 1];
+
+  onMount(() => {
+    if(!canAccess($questoes, nquestao))
+      goto('/');
+  })
+
+  const static_questoes = getQuestoes();
+  $: questao = static_questoes[nquestao - 1];
 
   /**
    * @type {any}
@@ -29,22 +38,29 @@
   }
 
   function responder(){
+    console.log("Responder", resposta)
     if(questao.tipo === 'dissert'){
       if(resposta.match(questao.resposta) !== null){
+        console.log("\tCorreta")
         questoes.update(o => {
           console.log("Resolver", o, nquestao-1)
-          o[nquestao - 1].resolvido = true;
+          o[nquestao - 1].resolvido++;
           return o;
         })
         gotoProxima();
+      }else{
+        console.log("\tErrada")
       }
     }else{
       if(resposta === questao.resposta){
+        console.log("\tCorreta")
         questoes.update(o => {
-          o[nquestao - 1].resolvido = true;
+          o[nquestao - 1].resolvido++;
           return o;
         })
         gotoProxima();
+      }else{
+        console.log("\tErrada", questao.resposta)
       }
     }
   }

@@ -27,10 +27,11 @@ Essa aplicação utiliza as técnologias:
 - Código-Fonte: [Projeto Git](https://github.com/miguelmazetto/ProjetoCertificadora1)
 - Primeira Entrega: [Video 1](https://drive.google.com/file/d/1gZYFuPbIPOie8LKHYm8HFqja9AVBTRhE/view)
 - Segunda Entrega: [Video 2](https://drive.google.com/file/d/1fpDIPM8ejgFPU5hk3Xl3ysDMiCw0ucHN/view)
+- Entrega Final: [Video 3](https://drive.google.com/file/d/1mACNLprKb_udb-iATnDRyU2sZeQAYPik/view)
 
 ### Instalação e Execução
 
-* Baixe os artefatos [aqui](https://github.com/miguelmazetto/ProjetoCertificadora1/releases/download/v0.2/ProjetoCertComp1.zip)
+* Baixe os artefatos [aqui](https://github.com/miguelmazetto/ProjetoCertificadora1/releases/download/v0.3/ProjetoCertComp1.zip)
 * Descompacte o arquivo zip em algum lugar
 * Tente o execútavel dentro da pasta window-mode, o executável sendo aquele correspondente ao sistema operacional que você estiver rodando (ele tentará usar um navegador já instalado para mostrar o frontend)
   * Se não funcionar o window-mode, tente o chrome-mode, ele usará especificamente o Google Chrome, que se você não tiver instalado tente o próximo método

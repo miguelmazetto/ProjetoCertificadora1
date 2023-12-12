@@ -36,13 +36,24 @@ export async function jsonwatcher(store, path, defaultdata){
         const fs = Neutralino.filesystem;
         let fevt = false;
 
-        // Add realtime watcher
+        // Watch changes from js side
+        store.subscribe(async (v) => {
+            if(fevt) return;
+            console.log("json update from js")
+            try{
+                await fs.writeFile(path, JSON.stringify(v, null, 4))
+            }catch(e){
+                console.error("Error writing file!\n", e)
+            }
+        })
+
+        // Watch changes from the file
         try{
             let watcherId = await fs.createWatcher(path)
 
-            // Watch changes from the file
             Neutralino.events.on('watchFile', (/** @type {{ detail: { id: any; }; }} */ evt) => {
                 if(watcherId == evt.detail.id){
+                    console.log("json update from file")
 
                     fevt = true; // prevent our subscribe from triggering
 
@@ -60,16 +71,9 @@ export async function jsonwatcher(store, path, defaultdata){
                     })
                 }
             });
-
-            // Watch changes from js side
-            store.subscribe(async (v) => {
-                if(fevt) return;
-                try{
-                    await fs.writeFile(path, JSON.stringify(v))
-                }catch(e){/* Ignore */}
-            })
-
-        }catch(e){/* Ignore */}
+        }catch(e){
+            console.error("Error setting up file watcher!\n", e)
+        }
 
     }else{ // Browser
 
